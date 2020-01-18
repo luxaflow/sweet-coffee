@@ -1,0 +1,87 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+height: 100vh;
+margin: 0;
+}
+
+.Interface {
+    background-image: url('./rect3717.png');
+    padding-left: 52.75%;
+    padding-right: 6.48%;
+    height: 100vh;
+    background-size: contain;
+    background-repeat  : no-repeat;
+    background-position: center;
+}
+
+.ErrorComponent {
+    background-image: url('./rect3717.png');
+    height: 100vh;
+    background-size: contain;
+    background-repeat  : no-repeat;
+    background-position: center;
+}
+
+.ErrorMessage {
+    position: absolute;
+    margin: 6%;
+    height: 88%;
+    width: 88%
+}
+
+.ErrorMessage p {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: red;
+    height: 60%;
+    padding: 5%;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+}
+
+.Spacing {
+    height: 40.32vh;
+}
+
+.Buttons {
+    margin: auto 2%;
+}
+
+.Button {
+    width: 31%;
+    margin: 1.1%;
+    height: 13vh;
+    border-radius: 3px;
+    font-size: 1.1rem;
+    background-color: #797F95;
+    border: 4px solid #9095AE;
+}
+
+.SliderContainer {
+    display: inline-block;
+    width: 50%;
+}
+
+.SliderContainer p {
+    float: right;
+    margin: 20px 40px 0 0;
+    font-size: 1.2rem;
+}
+
+.Status p {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-top: 0;
+}
+
+/* Slider */
+
+.MuiSlider-track {
+    height: 15px;
+    border-radius: 1px;
+}
