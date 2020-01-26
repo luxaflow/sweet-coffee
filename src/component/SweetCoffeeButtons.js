@@ -43,7 +43,7 @@ export default class SweetCoffeeButtons extends Component {
                     />
 
                     <SweetCoffeeButton 
-                        name="Chololade"
+                        name="Chocolade"
                         handleOnClick={
                             (sugar, milk) => {
                                 this.context.makeChoco(sugar, milk);

@@ -4,6 +4,15 @@ import ErrorMessage from './ErrorMessage';
 
 export default class ErrorComponent extends Component {
 
+    constructor(props){
+        super(props);
+
+        this.state = {
+            errorMessage: this.setErrorMessage()
+        };
+
+    }
+
     setErrorMessage = () => {
         switch(this.props.errorCode){
             case 1: 
@@ -21,14 +30,10 @@ export default class ErrorComponent extends Component {
     }
 
     render(){
-        
-        let errorMessage = this.setErrorMessage();
-
         return(
             <div className="ErrorComponent">
-                <ErrorMessage text={errorMessage} />
+                <ErrorMessage text={this.state.errorMessage} />
             </div>
         )
-
     }
 }

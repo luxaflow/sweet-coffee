@@ -14,7 +14,7 @@ export default class SweetCoffeeMachine extends Component {
 	constructor()  {
 		super();
 
-		this.errorState = 1;
+		this.errorState = 0;
 
 		this.errorCallback = this.errorCallback.bind(this);
 
@@ -45,8 +45,11 @@ export default class SweetCoffeeMachine extends Component {
 			milk: 0,
 			sugar: 0,
 			selection: null,
-			milkCapacity: 5,
-			sugarCapacity: 5
+			capacity : {
+				milk: 5,
+				sugar: 5,
+				chocolade: 5
+			}
 		};
 	}
 	
@@ -137,7 +140,6 @@ export default class SweetCoffeeMachine extends Component {
 	}
 	
 	readyCallback(callback) {
-
 		let _cbReady = callback;
 		
 		setTimeout(function() {
@@ -155,8 +157,11 @@ export default class SweetCoffeeMachine extends Component {
 				milk: prevState.milk,
 				sugar: value,
 				selection: prevState.selection,
-				sugarCapacity: prevState.sugarCapacity,
-				milkCapacity: prevState.milkCapacity
+				capacity: {
+					milk: prevState.capacity.milk,
+					sugar: prevState.capacity.sugar,
+					chocolade: prevState.capacity.chocolade
+				}
 			};
 		});
 	}
@@ -172,8 +177,11 @@ export default class SweetCoffeeMachine extends Component {
 				milk: value,
 				sugar: prevState.sugar,
 				selection: prevState.selection,
-				sugarCapacity: prevState.sugarCapacity,
-				handleChangeMilk: prevState.milkCapacity
+				capacity: {
+					milk: prevState.capacity.milk,
+					sugar: prevState.capacity.sugar,
+					chocolade: prevState.capacity.chocolade
+				}
 			}
 		});
 	}
@@ -182,8 +190,13 @@ export default class SweetCoffeeMachine extends Component {
 	// also required to disabled using the state
 	makeSelection(selection){
 
-		let newSugarCapactiy = this.state.sugarCapacity - this.state.sugar;
-		let newMilkCapacity = this.state.milkCapacity - this.state.milk;
+		let newSugarCapactiy = this.state.capacity.sugar - (this.state.sugar / 100);
+		let newMilkCapacity = this.state.capacity.milk - (this.state.milk / 100);
+		let newChocoladeCapacity = this.state.capacity.chocolade;
+
+		if (selection == 'Chocolade'){
+			newChocoladeCapacity = this.state.capacity.chocolade - 1
+		}
 
 		this.setState(prevState => {
 			return {
@@ -191,8 +204,11 @@ export default class SweetCoffeeMachine extends Component {
 				milk: prevState.milk,
 				sugar: prevState.sugar,
 				selection: selection,
-				sugarCapacity: newSugarCapactiy,
-				handleChangeMilk: newMilkCapacity
+				capacity: {
+					milk: newMilkCapacity,
+					sugar: newSugarCapactiy,
+					chocolade: newChocoladeCapacity
+				}
 			} 
 		}, () => { console.log(this.state)});
 	}
@@ -206,7 +222,12 @@ export default class SweetCoffeeMachine extends Component {
 				menuDisabled: false,
 				milk: 0,
 				sugar: 0,
-				selection: null
+				selection: null,
+				capacity: {
+					milk: prevState.capacity.milk,
+					sugar: prevState.capacity.sugar,
+					chocolade: prevState.capacity.chocolade
+				}
 			}
 		});
 	}

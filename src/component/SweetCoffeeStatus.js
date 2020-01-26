@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 
 export default class SweetCoffeeStatus extends Component {
 
+    constructor(props){
+        super(props);
+        this.statusMessage = this.setStatusMessage();
+    }
+
     setStatusMessage(){
 
         if (!this.props.status) {
@@ -11,14 +16,10 @@ export default class SweetCoffeeStatus extends Component {
         }
     }
     
-    render(){
-        
-        let statusMessage = this.setStatusMessage();
-        
+    render(){        
         return (
-
             <div className="Status">
-                <p>{statusMessage}</p>
+                <p>{this.statusMessage}</p>
             </div>
         );
     }

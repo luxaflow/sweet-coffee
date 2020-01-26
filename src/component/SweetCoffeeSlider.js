@@ -10,6 +10,14 @@ export default class SweetCoffeeSlider extends Component {
     static contextType = StateContext;
 
     render() {
+
+        let disabled = this.context.menuDisabled;
+
+        if (this.context.capacity.milk < 1 && this.props.name == 'Melk') {
+            disabled = true;
+        } else if (this.context.capacity.sugar < 1 && this.props.name == 'Suiker') {
+            disabled = true;
+        }
         
         // slider has to be in render to work correctly.
         // attempted to move to constructor, but this causes errors
@@ -50,7 +58,7 @@ export default class SweetCoffeeSlider extends Component {
             <div className="SliderContainer">
                 <p>{this.props.name}</p><br />
                 <SweetCoffeeSlider
-                    disabled={this.context.menuDisabled}
+                    disabled={disabled}
                     valueLabelDisplay="auto"
                     onTouchEnd={this.props.handleChange}
                     defaultValue={this.props.value} 
