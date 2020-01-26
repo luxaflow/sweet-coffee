@@ -194,9 +194,9 @@ export default class SweetCoffeeMachine extends Component {
 		let newMilkCapacity = this.state.capacity.milk - (this.state.milk / 100);
 		let newChocoladeCapacity = this.state.capacity.chocolade;
 
-		if (selection == 'Chocolade'){
+		if (selection == 'Chocolade' || selection == 'Wiener Melange'){
 			newChocoladeCapacity = this.state.capacity.chocolade - 1
-		}
+		} 
 
 		this.setState(prevState => {
 			return {

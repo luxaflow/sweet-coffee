@@ -4,12 +4,12 @@ export default class SweetCoffeeStatus extends Component {
 
     constructor(props){
         super(props);
-        this.statusMessage = this.setStatusMessage();
+        this.statusMessage;
     }
 
     setStatusMessage(){
 
-        if (!this.props.status) {
+        if (this.props.status == null) {
             return 'Klaar voor keuze';
         } else {
             return `Machine maakt ${this.props.status}`;
@@ -17,6 +17,9 @@ export default class SweetCoffeeStatus extends Component {
     }
     
     render(){        
+
+        this.statusMessage = this.setStatusMessage();
+
         return (
             <div className="Status">
                 <p>{this.statusMessage}</p>
