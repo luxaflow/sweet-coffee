@@ -35,7 +35,7 @@ test('Renders Slider with Text Melk', () => {
     expect(queryByText("Melk")).toBeTruthy();
 });
 
-test('Renders Slider with Slider with value of 50', () => {
+test('Renders Slider with  value of 50', () => {
   const { getAllByDisplayValue } = render(
     <StateContext.Provider value={context}>
       <SweetCoffeeSlider

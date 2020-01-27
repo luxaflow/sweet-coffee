@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, findAllByText } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import SweetCoffeeMachine from '../component/SweetCoffeeMock';
 import ErrorComponent from '../component/ErrorComponent';
 
